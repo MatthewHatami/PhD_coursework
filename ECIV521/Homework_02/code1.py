@@ -6,16 +6,7 @@ import matplotlib.pyplot as plt
 
 
 
-## section 2: reading the input
-# we don't have a specific input in this code, so we carry on with next section
-
-
-
-
-
-
-
-## section 3: Doing the calculations
+## section 2: Doing the calculations
 # defining the function from the homework text
 def f(x):
     return (np.arcsin(np.sin(2 * np.pi * x)) + np.arccos(np.cos(2 * np.pi * x))) / (2 * np.pi)
@@ -32,7 +23,7 @@ y_vals = f(x_vals) # Calculate y values using the function we defined earlier
 
 
 
-## section 4: Plotting the results
+## section 3: Plotting the results
 # Create the plot using matplotlib library
 plt.figure(figsize=(10, 5))  
 plt.plot(x_vals * np.pi, y_vals) # changing the x lables to be multiples of pi

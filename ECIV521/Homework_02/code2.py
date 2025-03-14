@@ -9,14 +9,8 @@ from numpy import pi
 
 
 
-## section 2: reading the input
-# we don't have a specific input in this code, so we carry on with next section
 
-
-
-
-
-## section 3: Doing the calculations
+## section 2: Doing the calculations
 # Define the function sinx/x with special handling for x=0
 def f(x):
     return np.where(np.abs(x) < 1e-10, 1.0, np.sin(x)/x)  # the notation is like: np.where(condition, value if true, value if false)
@@ -48,7 +42,7 @@ print(f"Exact value: {exact_value:.10f}")
 
 
 
-## section 4: Evaluating and comparing the results from the two methods
+## section 3: Evaluating and comparing the results from the two methods
 # Test with different numbers of intervals
 n_values = [5, 10, 25, 50, 75, 100]
 trap_results = [] # this will store the results of the trapezoidal method
@@ -83,7 +77,7 @@ for n in n_values:
 
 
 
-# section 5: Plotting the results
+# section 4: Plotting the results
 # Create a single plot for method comparison
 plt.figure(figsize=(10, 6))
 plt.plot(n_values, [r - exact_value for r in trap_results], 'o-', label='Trapezoidal Error')
@@ -100,16 +94,3 @@ plt.tight_layout()
 plt.savefig('numerical_integration_comparison.pdf')
 plt.show()
 
-# Display a summary of the findings
-print("\nSUMMARY:")
-print(f"The integral of sin(x)/x from 0 to π ≈ {exact_value:.10f}")
-print(f"For n = {n_values[-1]} intervals:")
-print(f"  Trapezoidal method: {trap_results[-1]:.10f} (Error: {trap_errors[-1]:.10e})")
-print(f"  Midpoint method: {mid_results[-1]:.10f} (Error: {mid_errors[-1]:.10e})")
-print("\nObservations:")
-print("1. Both methods converge to the exact value as n increases.")
-print("2. The convergence rate is approximately O(1/n²) for both methods, as expected.")
-print("3. The midpoint method typically has smaller errors than the trapezoidal method for this particular integral.")
-print("4. The error in the trapezoidal method decreases by approximately a factor of 4 when n doubles.")
-print("5. Similarly, the midpoint method error decreases by approximately a factor of 4 when n doubles.")
-print("\nThe plot has been saved as 'numerical_integration_comparison.pdf'")
